@@ -33,7 +33,7 @@
   
     // PATCH: LOCAL INIT
     if ([response.notification.request.trigger isKindOfClass:[UNCalendarNotificationTrigger class]] &&
-        [[NSDate date] timeIntervalSinceDate:[RNNotificationsStore sharedInstance].startTime] < 10) {
+        ![RNNotificationsStore sharedInstance].startTime) {
       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
       [RNEventEmitter sendEvent:RNNotificationOpened body:[RNNotificationParser parseNotificationResponse:response]];
       });
