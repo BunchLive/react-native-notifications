@@ -5,7 +5,8 @@
 @interface RNNotificationsStore : NSObject
 
 @property (nonatomic, retain) NSDictionary* initialNotification;
-
+// PATCH: LOCAL INIT
+@property (nonatomic, retain) NSDate* startTime;
 + (instancetype)sharedInstance;
 
 - (void)completeAction:(NSString *)completionKey;
