@@ -28,6 +28,8 @@ RCT_EXPORT_MODULE();
     if ([_bridge.launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
         [[RNNotificationsStore sharedInstance] setInitialNotification:[_bridge.launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
     }
+  // PATCH: LOCAL INIT
+  [[RNNotificationsStore sharedInstance] setStartTime:[NSDate date]];
 }
 
 - (dispatch_queue_t)methodQueue {
